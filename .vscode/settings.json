@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "event_handling.c": "cpp",
+        "fractol.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "unistd.h": "c",
+        "stdio.h": "c"
     }
 }

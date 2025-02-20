@@ -50,7 +50,7 @@ int main()
     }
     while (x > 100)
     {
-        my_mlx_pixel_put(&img,y,x , 0xFF0000);
+        my_mlx_pixel_put(&img,y,x , 0x0000FF);
         y++;
         x--;
     }
@@ -82,7 +82,7 @@ int main()
         y--;
     }
     my_mlx_pixel_put(&img,y,x , 0xFF0000);
-    mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0); // Show image in the window
+    mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
     mlx_loop(img.mlx);
     return (0);
 }
