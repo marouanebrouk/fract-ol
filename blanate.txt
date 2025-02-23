@@ -1,17 +1,17 @@
-double ft_scale(double num, double new_min, double new_max, double old_min, double old_max)
-{
-    return ((new_max - new_min) * (num - old_min) / (old_max - old_min) + new_min);
-}
+// double ft_scale(double num, double new_min, double new_max, double old_min, double old_max)
+// {
+//     return ((new_max - new_min) * (num - old_min) / (old_max - old_min) + new_min);
+// }
 
-int main()
-{
-    int i = 0;
-    while (i < 800)
-    {
-        printf("%d -> %f\n",i, ft_scale(i,-2,2,0,799));
-        i++;
-    }
-}
+// int main()
+// {
+//     int i = 0;
+//     while (i < 800)
+//     {
+//         printf("%d -> %f\n",i, ft_scale(i,-2,2,0,799));
+//         i++;
+//     }
+// }
 
 
 
@@ -21,7 +21,7 @@ int main()
 // iteration plan
 
 
-
+#include <stdio.h>
 
 
 typedef struct s_complex
@@ -36,8 +36,8 @@ int main()
     t_complex c;
     z.real = 0;
     z.imaginary = 0;
-    c.real = -0.31;
-    c.imaginary = 0.08;
+    c.real = -0.6;
+    c.imaginary = 0.48;
     
     double tmp_real;
     int index = 0;
