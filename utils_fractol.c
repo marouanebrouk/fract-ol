@@ -47,7 +47,8 @@ void ft_error(t_fractol *fractal)
 void ft_data_init(t_fractol *fractal)
 {
     fractal->escape_value = 4; // 2 ^ 2 my hypothenus
-    fractal->iteration_num = 120;
+    fractal->iteration_num = 50;
     fractal->shift_reel = 0.0;
     fractal->shift_imaginary = 0.0;
+    fractal->zoom = 1.0;
 }

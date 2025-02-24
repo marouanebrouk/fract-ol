@@ -7,9 +7,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+# define KEY_LEFT  65361
+# define KEY_UP    65362
+# define KEY_RIGHT 65363
+# define KEY_DOWN  65364
+# define KEY_PLUS  65451
+# define KEY_MINUS  65453
 
 
-/* ---------- Colors ---------- */
+
+
 # define BLACK		0x000000
 # define WHITE		0xFFFFFF
 # define RED		0xFF0000
@@ -56,6 +63,7 @@ typedef struct s_fractol
     int iteration_num;
     double shift_reel;
     double shift_imaginary;
+    double zoom;
     t_img img;
 }   t_fractol;
 
@@ -73,19 +81,13 @@ void ft_adjust_name(char *str);
 int	ft_strcmp(char *s1, char *s2);
 
 /* fractol utils*/
-void ft_data_init(t_fractol *fractal);
-void init_window(t_fractol *fractal);
-int ft_check_input(int ac, char **av , t_fractol *fractal);
-void ft_check_pixel(int x, int y,t_fractol *fractal);
-void	my_pixel_put(int x, int y,t_img *img, int color);
-void render_fractal(t_fractol *fractal);
-void ft_events(t_fractol *fractal);
-
-
-
-
-
-
+void    ft_data_init(t_fractol *fractal);
+void    init_window(t_fractol *fractal);
+int     ft_check_input(int ac, char **av , t_fractol *fractal);
+void    ft_check_pixel(int x, int y,t_fractol *fractal);
+void    ft_pixel_put(int x, int y,t_img *img, int color);
+void    render_fractal(t_fractol *fractal);
+void    ft_events(t_fractol *fractal);
 
 
 

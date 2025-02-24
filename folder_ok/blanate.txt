@@ -36,8 +36,8 @@ int main()
     t_complex c;
     z.real = 0;
     z.imaginary = 0;
-    c.real = -0.6;
-    c.imaginary = 0.48;
+    c.real = 0;
+    c.imaginary =0.5;
     
     double tmp_real;
     int index = 0;

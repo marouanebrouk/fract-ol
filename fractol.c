@@ -26,22 +26,9 @@ void init_window(t_fractol *fractal)
     ft_events(fractal);
 }
 
-int ft_check_input(int ac, char **av , t_fractol *fractal)
-{
-    ft_adjust_name(av[1]);
-    if ((ac == 2 && ft_strcmp("mandelbrot",av[1]) == 0))
-        fractal->title = av[1];
-    else if ((ac == 4 && ft_strcmp("julia",av[1]) == 0))
-        fractal->title = av[1];
-    else
-        ft_print_error();
-    return (0);
-}
 
 
-
-
-void ft_check_pixel(int x, int y,t_fractol *fractal)
+void ft_check_pixel(int x, int y, t_fractol *fractal)
 {
     t_complex z;
     t_complex c;
@@ -51,20 +38,20 @@ void ft_check_pixel(int x, int y,t_fractol *fractal)
     i = 0;
     z.reel = 0;
     z.imaginary = 0;
-    c.reel = ft_scale(x, -2, 2, 0, WIDTH);
-    c.imaginary = ft_scale(y, 2, -2, 0, HEIGHT);
+    c.reel = ft_scale(x, -2, 2, 0, WIDTH) * fractal->zoom + fractal->shift_reel;
+    c.imaginary = ft_scale(y, 2, -2, 0, HEIGHT)  * fractal->zoom + fractal->shift_imaginary;
     while (i < fractal->iteration_num)
     {
         z = sum_comlpex(square_complex(z), c);
         if (( z.reel * z.reel + z.imaginary * z.imaginary ) > fractal->escape_value)
         {
-            color  = ft_scale(i ,BLACK,GREEN, 0, fractal->iteration_num);
-            my_pixel_put(x, y, &fractal->img, color);
+            color  = ft_scale(i, BLACK, WHITE, 0, fractal->iteration_num);
+            ft_pixel_put(x, y, &fractal->img, color);
             return ;
         }
         i++;
     }
-    my_pixel_put(x, y, &fractal->img,WHITE);
+    ft_pixel_put(x, y, &fractal->img,BLACK);
 }
 
 
@@ -83,19 +70,4 @@ void render_fractal(t_fractol *fractal)
         y++;
     }
     mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img,0,0);
-}
-
-int main(int ac, char **av)
-{
-    t_fractol fractal;
-
-    if (ac == 1)
-        ft_print_error();
-    ft_check_input(ac, av, &fractal);
-
-    init_window(&fractal);
-    
-    render_fractal(&fractal);
-    
-    mlx_loop(fractal.mlx);
 }
