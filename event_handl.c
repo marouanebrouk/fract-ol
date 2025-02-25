@@ -16,18 +16,18 @@ static int ft_handle_key_events(int keycode, t_fractol *fractal)
     if (keycode == KEY_ESC)
         ft_close_win(fractal);
     else if (keycode == KEY_LEFT)
-        fractal->shift_reel -= 0.02 * fractal->zoom;
+        fractal->shift_reel -= 0.1 * fractal->zoom;
     else if (keycode == KEY_UP)
-        fractal->shift_imaginary += 0.02 * fractal->zoom;
+        fractal->shift_imaginary += 0.1 * fractal->zoom;
     else if (keycode == KEY_RIGHT)
-        fractal->shift_reel += 0.02 * fractal->zoom;
+        fractal->shift_reel += 0.1 * fractal->zoom;
     else if (keycode == KEY_DOWN)
-        fractal->shift_imaginary -= 0.02 * fractal->zoom;
+        fractal->shift_imaginary -= 0.1 * fractal->zoom;
     // play with iteration number.
     else if (keycode == KEY_PLUS)
-        fractal->iteration_num += 3 * fractal->zoom;
+        fractal->iteration_num += 3;
     else if (keycode == KEY_MINUS)
-        fractal->iteration_num -= 3 * fractal->zoom;
+        fractal->iteration_num -= 3;
     mlx_clear_window(fractal->mlx, fractal->win);
     render_fractal(fractal);
     return (0);

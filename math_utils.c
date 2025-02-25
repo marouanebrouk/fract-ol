@@ -48,11 +48,11 @@ void	ft_pixel_put(int x, int y, t_img *img, int color)
 double ft_atod(char *str)
 {
     long decimal_result;
-    double floating_result;
+    double double_result;
     double fp;
     int sign;
 
-    (1) & (decimal_result = 0, floating_result = 0,fp = 1,sign = 1);
+    (1) & (decimal_result = 0, double_result = 0, fp = 1, sign = 1);
     while ((*str >= 9 && *str <= 13 )|| *str == 32)
         str++;
     if (*str == '-'  || *str == '+')
@@ -68,9 +68,9 @@ double ft_atod(char *str)
     while(*str)
     {
         fp /= 10;
-        floating_result = floating_result + (*str - '0') * fp;
+        double_result = double_result + (*str - '0') * fp;
         str++;
     }
-    return ((decimal_result + floating_result) * sign);
+    return ((decimal_result + double_result) * sign);
 }
 

@@ -9,14 +9,12 @@ void init_window(t_fractol *fractal)
     fractal->win = mlx_new_window(fractal->mlx ,WIDTH ,HEIGHT ,fractal->title);
     if (fractal->win == NULL)
     {
-        mlx_destroy_window(fractal->mlx, fractal->win);
         mlx_destroy_display(fractal->mlx);
         ft_error(fractal);
     }
     fractal->img.img = mlx_new_image(fractal->mlx ,WIDTH ,HEIGHT);
     if (fractal->img.img == NULL)
     {
-        mlx_destroy_image(fractal->mlx,fractal->img.img);
         mlx_destroy_window(fractal->mlx, fractal->win);
         mlx_destroy_display(fractal->mlx);
         ft_error(fractal);
@@ -27,6 +25,20 @@ void init_window(t_fractol *fractal)
 }
 
 
+static void check_fractal(t_complex *z, t_complex *c, t_fractol *fractal)
+{
+    if (ft_strcmp(fractal->title,"julia") == 0)
+    {
+        c->reel = fractal->julia_reel;
+        c->imaginary = fractal->julia_imaginary;
+    }
+    else
+    {
+        c->reel = z->reel;
+        c->imaginary = z->imaginary;
+    }
+}
+
 
 void ft_check_pixel(int x, int y, t_fractol *fractal)
 {
@@ -36,10 +48,13 @@ void ft_check_pixel(int x, int y, t_fractol *fractal)
     int     color;
 
     i = 0;
-    z.reel = 0;
-    z.imaginary = 0;
-    c.reel = ft_scale(x, -2, 2, 0, WIDTH) * fractal->zoom + fractal->shift_reel;
-    c.imaginary = ft_scale(y, 2, -2, 0, HEIGHT)  * fractal->zoom + fractal->shift_imaginary;
+    // z.reel = 0;
+    // z.imaginary = 0;
+    // why i scaled z.reel z.imaginary instead of c.real c.imaginary
+    // which what it was in the first half
+    z.reel = ft_scale(x, -2, 2, 0, WIDTH) * fractal->zoom + fractal->shift_reel;
+    z.imaginary =ft_scale(y, 2, -2, 0, HEIGHT)  * fractal->zoom + fractal->shift_imaginary;
+    check_fractal(&z ,&c, fractal);
     while (i < fractal->iteration_num)
     {
         z = sum_comlpex(square_complex(z), c);

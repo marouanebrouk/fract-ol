@@ -64,6 +64,8 @@ typedef struct s_fractol
     double shift_reel;
     double shift_imaginary;
     double zoom;
+    double julia_reel;
+    double julia_imaginary;
     t_img img;
 }   t_fractol;
 
@@ -71,6 +73,7 @@ typedef struct s_fractol
 double ft_scale(double num, double new_min, double new_max, double old_min, double old_max);
 t_complex sum_comlpex(t_complex z1, t_complex z2);
 t_complex square_complex(t_complex z);
+double ft_atod(char *str);
 
 /* erreur functions */
 void ft_error(t_fractol *fractal);
