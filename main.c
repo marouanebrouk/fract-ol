@@ -24,10 +24,7 @@ int main(int ac, char **av)
     if (ac == 1)
         ft_print_error();
     ft_check_input(ac, av, &fractal);
-
     init_window(&fractal);
-    
     render_fractal(&fractal);
-    
     mlx_loop(fractal.mlx);
 }

@@ -52,7 +52,7 @@ double ft_atod(char *str)
     double fp;
     int sign;
 
-    (1) & (decimal_result = 0, double_result = 0, fp = 1, sign = 1);
+    (decimal_result = 0, double_result = 0, fp = 1, sign = 1);
     while ((*str >= 9 && *str <= 13 )|| *str == 32)
         str++;
     if (*str == '-'  || *str == '+')

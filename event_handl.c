@@ -12,7 +12,7 @@ static int ft_close_win(t_fractol *fractal)
 
 static int ft_handle_key_events(int keycode, t_fractol *fractal)
 {
-    printf("the key pressed is %d\n",keycode);
+    // printf("the key pressed is %d\n",keycode);
     if (keycode == KEY_ESC)
         ft_close_win(fractal);
     else if (keycode == KEY_LEFT)

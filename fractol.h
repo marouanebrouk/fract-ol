@@ -2,11 +2,11 @@
 # define FRACTOL_H
 
 #include "minilibx-linux/mlx.h"
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <string.h>
 
+
+# define KEY_ESC 65307
 # define KEY_LEFT  65361
 # define KEY_UP    65362
 # define KEY_RIGHT 65363
@@ -15,28 +15,12 @@
 # define KEY_MINUS  65453
 
 
-
-
 # define BLACK		0x000000
 # define WHITE		0xFFFFFF
-# define RED		0xFF0000
-# define GREEN		0x00FF00
-# define BLUE		0x0000FF
-# define DARK_BLUE	0x00008B
-# define YELLOW		0xFFFF00
-# define CYAN		0x00FFFF
-# define MAGENTA	0xFF00FF
-# define GRAY		0x808080
-# define LIGHT_GRAY	0xD3D3D3
-# define DARK_GRAY	0x404040
-# define ORANGE		0xFFA500
-# define PURPLE		0x800080
-# define BROWN		0xA52A2A
 
 
 #define WIDTH 800
 #define HEIGHT 800
-#define KEY_ESC 65307
 
 typedef struct s_complex
 {
@@ -91,8 +75,5 @@ void    ft_check_pixel(int x, int y,t_fractol *fractal);
 void    ft_pixel_put(int x, int y,t_img *img, int color);
 void    render_fractal(t_fractol *fractal);
 void    ft_events(t_fractol *fractal);
-
-
-
 
 #endif
