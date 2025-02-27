@@ -10,9 +10,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(SRC) $(MLX_FLAGS) -o $@
-
-bonus: all
-
+	
 clean:
 	$(RM) $(OBJ)
 
