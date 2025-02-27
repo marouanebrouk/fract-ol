@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handl.c                                      :+:      :+:    :+:   */
+/*   event_handle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:19:16 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/27 14:19:19 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:56:35 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_handle_key_events(int keycode, t_fractol *fractal)
 	else if (keycode == KEY_MINUS)
 		fractal->iteration_num -= 3;
 	mlx_clear_window(fractal->mlx, fractal->win);
-	render_fractal(fractal);
+	ft_render_fractal(fractal);
 	return (0);
 }
 
@@ -52,7 +52,7 @@ static int	ft_mouse_event(int mouse_code, int x, int y, t_fractol *fractal)
 	else if (mouse_code == 5)
 		fractal->zoom *= 1.20;
 	mlx_clear_window(fractal->mlx, fractal->win);
-	render_fractal(fractal);
+	ft_render_fractal(fractal);
 	return (0);
 }
 

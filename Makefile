@@ -2,11 +2,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -L /usr/include/minilibx-linux -lmlx -lX11 -lXext 
 RM = rm -rf
-SRC = main.c event_handl.c fractol.c math_utils.c utils_fractol.c ft_atod.c
+SRC = main.c event_handle.c fractol.c math_utils.c utils_fractol.c ft_atod.c
 NAME = fractol
 OBJ = $(SRC:%.c=%.o)
-
-
 
 all: $(NAME)
 
