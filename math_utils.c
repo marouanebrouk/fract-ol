@@ -42,35 +42,3 @@ void	ft_pixel_put(int x, int y, t_img *img, int color)
 	offset = (y * img->line_length) + (x * (img->bits_pp / 8));
 	*(int *)(img->pixel_addr + offset) = color;
 }
-
-
-
-double ft_atod(char *str)
-{
-    long decimal_result;
-    double double_result;
-    double fp;
-    int sign;
-
-    (decimal_result = 0, double_result = 0, fp = 1, sign = 1);
-    while ((*str >= 9 && *str <= 13 )|| *str == 32)
-        str++;
-    if (*str == '-'  || *str == '+')
-        if(*str++ == '-')
-            sign *= -1;
-    while (*str >= '0' && *str <= '9')
-    {
-        decimal_result = decimal_result * 10 + (*str - '0');
-        str++;
-    }
-    if (*str == '.')
-        str++;
-    while(*str)
-    {
-        fp /= 10;
-        double_result = double_result + (*str - '0') * fp;
-        str++;
-    }
-    return ((decimal_result + double_result) * sign);
-}
-

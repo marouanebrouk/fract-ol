@@ -1,19 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_fractol.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:50:26 by mbrouk            #+#    #+#             */
+/*   Updated: 2025/02/27 14:50:30 by mbrouk           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void ft_adjust_name(char *str)
+void	ft_adjust_name(char *str)
 {
-    int i = 0;
-    while (str[i])
-    {
-        if(str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        i++;
-    }
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
+	}
 }
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s1[i] && !s2[i])
@@ -22,33 +36,34 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
-void    ft_print_error()
+
+void	ft_print_error(void)
 {
-	int i;
+	int		i;
+	char	*str;
 
 	i = 0;
-    char *str = "Error. \nFormat required:      < ./fractol mandelbrot >    OR    < ./fractol julia 'reel' 'imaginary' >\n";
-    while (str[i])
-    {
-        write(2,&str[i],1);
-        i++;
-    }
+	str = "Error.\nFormat required: < ./fractol mandelbrot > OR "
+		"< ./fractol julia 'reel' 'imaginary' >\n";
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 	exit(1);
 }
 
-void ft_error(t_fractol *fractal)
+void	ft_error(t_fractol *fractal)
 {
-    write(2,"mlx function failed\n",20);
-    free(fractal->mlx);
-    exit(1);
+	write(2, "mlx function failed\n", 20);
+	free(fractal->mlx);
+	exit(1);
 }
 
-
-void ft_data_init(t_fractol *fractal)
+void	ft_data_init(t_fractol *fractal)
 {
-    fractal->escape_value = 4; // 2 ^ 2 my hypothenus
-    fractal->iteration_num = 50;
-    fractal->shift_reel = 0.0;
-    fractal->shift_imaginary = 0.0;
-    fractal->zoom = 1.0;
+	fractal->iteration_num = 50;
+	fractal->shift_reel = 0.0;
+	fractal->shift_imaginary = 0.0;
+	fractal->zoom = 1.0;
 }

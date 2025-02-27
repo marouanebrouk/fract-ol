@@ -1,17 +1,14 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+MLX_FLAGS = -L /usr/include/minilibx-linux -lmlx -lX11 -lXext 
 RM = rm -rf
-SRC = main.c event_handl.c fractol.c math_utils.c utils_fractol.c
-
+SRC = main.c event_handl.c fractol.c math_utils.c utils_fractol.c ft_atod.c
+NAME = fractol
 OBJ = $(SRC:%.c=%.o)
 
-NAME = fractol
+
 
 all: $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(SRC) $(MLX_FLAGS) -o $@
@@ -26,4 +23,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re # NAME iam gonna see
+.PHONY: all clean fclean re

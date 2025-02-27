@@ -1,9 +1,10 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include "minilibx-linux/mlx.h"
+#include "/usr/include/minilibx-linux/mlx.h"
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 # define KEY_ESC 65307
@@ -16,11 +17,12 @@
 
 
 # define BLACK		0x000000
+# define BLUE		0x0000FF
 # define WHITE		0xFFFFFF
 
 
-#define WIDTH 800
-#define HEIGHT 800
+#define WIDTH 600
+#define HEIGHT 600
 
 typedef struct s_complex
 {

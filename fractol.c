@@ -25,11 +25,11 @@ void init_window(t_fractol *fractal)
 }
 
 
-static void check_fractal(t_complex *z, t_complex *c, t_fractol *fractal)
+static void check_fractal_set(t_complex *z, t_complex *c, t_fractol *fractal)
 {
     if (ft_strcmp(fractal->title,"julia") == 0)
     {
-        c->reel = fractal->julia_reel;
+        c->reel   = fractal->julia_reel;
         c->imaginary = fractal->julia_imaginary;
     }
     else
@@ -54,11 +54,11 @@ void ft_check_pixel(int x, int y, t_fractol *fractal)
     // which what it was in the first half
     z.reel = ft_scale(x, -2, 2, 0, WIDTH) * fractal->zoom + fractal->shift_reel;
     z.imaginary =ft_scale(y, 2, -2, 0, HEIGHT)  * fractal->zoom + fractal->shift_imaginary;
-    check_fractal(&z ,&c, fractal);
+    check_fractal_set(&z ,&c, fractal);
     while (i < fractal->iteration_num)
     {
         z = sum_comlpex(square_complex(z), c);
-        if (( z.reel * z.reel + z.imaginary * z.imaginary ) > fractal->escape_value)
+        if (( z.reel * z.reel + z.imaginary * z.imaginary ) > 4)
         {
             color  = ft_scale(i, BLACK, WHITE, 0, fractal->iteration_num);
             ft_pixel_put(x, y, &fractal->img, color);
