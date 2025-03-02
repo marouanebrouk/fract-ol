@@ -4,7 +4,6 @@
 # define WIDTH 800
 # define HEIGHT 800
 
-    // mlx_key_hook(img.win, key_hook, img.mlx); -----> to be in main.
 int key_hook(int keycode, void *param)
 {
     printf("Key pressed: %d\n", keycode);
@@ -36,54 +35,65 @@ int main()
 {
     t_data img;
 
-    int x = 100;
-    int y = 100;
+    int x = 0;
+    int y = 0;
     img.mlx = mlx_init();
     img.win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "new window");
     img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
     img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
-    x = 100;
-    while (x < 400)
+    while (y < 800)
     {
-        my_mlx_pixel_put(&img, y, x, 0xFF0000);
-        x++;
-    }
-    while (x > 100)
-    {
-        my_mlx_pixel_put(&img,y,x , 0x0000FF);
-        y++;
-        x--;
-    }
-
-    while (y > 100)
-    {
-        my_mlx_pixel_put(&img,y,x , 0xFF0000);
-        y--;
-    }
-    // second triangle
-    x = 450;
-    my_mlx_pixel_put(&img, y, x, 0xFF0000);
-    while (x < 750)
-    {
-        my_mlx_pixel_put(&img, y, x, 0xFF0000);
-        x++;
-    }
-
-    while (y < 400)
-    {
-        my_mlx_pixel_put(&img, y, x, 0xFF0000);
+        x = 0;
+        while(x < 800)
+        {
+            
+            my_mlx_pixel_put(&img, y, x, 0xFF0000);
+            x++;
+        }
         y++;
     }
-
-    while (x > 450)
-    {
-        my_mlx_pixel_put(&img, y, x, 0xFF0000);
-        x--;
-        y--;
-    }
-    my_mlx_pixel_put(&img,y,x , 0xFF0000);
     mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
     mlx_loop(img.mlx);
     return (0);
 }
 
+
+// x = 100;
+// while (x < 400)
+// {
+//     my_mlx_pixel_put(&img, y, x, 0xFF0000);
+//     x++;
+// }
+// while (x > 100)
+// {
+//     my_mlx_pixel_put(&img,y,x , 0x0000FF);
+//     y++;
+//     x--;
+// }
+
+// while (y > 100)
+// {
+//     my_mlx_pixel_put(&img,y,x , 0xFF0000);
+//     y--;
+// }
+// // second triangle
+// x = 450;
+// my_mlx_pixel_put(&img, y, x, 0xFF0000);
+// while (x < 750)
+// {
+//     my_mlx_pixel_put(&img, y, x, 0xFF0000);
+//     x++;
+// }
+
+// while (y < 400)
+// {
+//     my_mlx_pixel_put(&img, y, x, 0xFF0000);
+//     y++;
+// }
+
+// while (x > 450)
+// {
+//     my_mlx_pixel_put(&img, y, x, 0xFF0000);
+//     x--;
+//     y--;
+// }

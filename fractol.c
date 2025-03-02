@@ -6,11 +6,19 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:54:20 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/27 17:54:23 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/02 01:16:33 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	ft_free_all(t_fractol *fractal)
+{
+	mlx_destroy_image(fractal->mlx, fractal->img.img);
+	mlx_destroy_window(fractal->mlx, fractal->win);
+	mlx_destroy_display(fractal->mlx);
+	ft_error(fractal);
+}
 
 void	ft_init_window(t_fractol *fractal)
 {
@@ -33,6 +41,8 @@ void	ft_init_window(t_fractol *fractal)
 	fractal->img.pixel_addr = mlx_get_data_addr(fractal->img.img,
 			&fractal->img.bits_pp, &fractal->img.line_length,
 			&fractal->img.endian);
+	if (fractal->img.pixel_addr == NULL)
+		ft_free_all(fractal);
 	ft_data_init(fractal);
 	ft_events(fractal);
 }
@@ -51,7 +61,7 @@ static void	ft_check_fractal_set(t_complex *z, t_complex *c, t_fractol *fractal)
 	}
 }
 
-void	ft_check_pixel(int x, int y, t_fractol *fractal)
+void	ft_pixel(int x, int y, t_fractol *fractal)
 {
 	t_complex	z;
 	t_complex	c;
@@ -88,7 +98,7 @@ void	ft_render_fractal(t_fractol *fractal)
 		x = 0;
 		while (x < WIDTH)
 		{
-			ft_check_pixel(x, y, fractal);
+			ft_pixel(x, y, fractal);
 			x++;
 		}
 		y++;

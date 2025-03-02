@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:19:16 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/27 17:56:35 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/01 22:43:17 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	ft_close_win(t_fractol *fractal)
 	mlx_destroy_window(fractal->mlx, fractal->win);
 	mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
+	fractal->mlx = NULL;
 	exit(0);
 	return (0);
 }

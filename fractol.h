@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:21:26 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/27 17:57:24 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/01 22:10:05 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int			ft_strcmp(char *s1, char *s2);
 void		ft_data_init(t_fractol *fractal);
 void		ft_init_window(t_fractol *fractal);
 int			ft_check_input(int ac, char **av, t_fractol *fractal);
-void		ft_check_pixel(int x, int y, t_fractol *fractal);
+void		ft_pixel(int x, int y, t_fractol *fractal);
 void		ft_pixel_put(int x, int y, t_img *img, int color);
 void		ft_render_fractal(t_fractol *fractal);
 void		ft_events(t_fractol *fractal);
