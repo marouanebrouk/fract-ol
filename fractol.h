@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:21:26 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/03/01 22:10:05 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:31:28 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # define KEY_MINUS  65453
 
 # define BLACK		0x000000
-# define BLUE		0x0000FF
 # define WHITE		0xFFFFFF
 
 # define WIDTH      700
@@ -53,7 +52,6 @@ typedef struct s_fractol
 	void	*mlx;
 	void	*win;
 	char	*title;
-	double	escape_value;
 	int		iteration_num;
 	double	shift_reel;
 	double	shift_imaginary;
@@ -77,11 +75,12 @@ void		ft_print_error(void);
 /* C Utils */
 void		ft_adjust_name(char *str);
 int			ft_strcmp(char *s1, char *s2);
+char		*ft_strtrim(char *str);
 
 /* Fractol Utils */
 void		ft_data_init(t_fractol *fractal);
 void		ft_init_window(t_fractol *fractal);
-int			ft_check_input(int ac, char **av, t_fractol *fractal);
+void		ft_check_input(int ac, char **av, t_fractol *fractal);
 void		ft_pixel(int x, int y, t_fractol *fractal);
 void		ft_pixel_put(int x, int y, t_img *img, int color);
 void		ft_render_fractal(t_fractol *fractal);

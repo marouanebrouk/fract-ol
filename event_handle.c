@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:19:16 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/03/01 22:43:17 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:50:29 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static int	ft_handle_key_events(int keycode, t_fractol *fractal)
 	if (keycode == KEY_ESC)
 		ft_close_win(fractal);
 	else if (keycode == KEY_LEFT)
-		fractal->shift_reel -= 0.1 * fractal->zoom;
+		fractal->shift_reel -= 0.20 * fractal->zoom;
 	else if (keycode == KEY_UP)
-		fractal->shift_imaginary += 0.1 * fractal->zoom;
+		fractal->shift_imaginary += 0.20 * fractal->zoom;
 	else if (keycode == KEY_RIGHT)
-		fractal->shift_reel += 0.1 * fractal->zoom;
+		fractal->shift_reel += 0.20 * fractal->zoom;
 	else if (keycode == KEY_DOWN)
-		fractal->shift_imaginary -= 0.1 * fractal->zoom;
+		fractal->shift_imaginary -= 0.20 * fractal->zoom;
 	else if (keycode == KEY_PLUS)
 		fractal->iteration_num += 3;
 	else if (keycode == KEY_MINUS)

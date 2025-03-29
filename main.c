@@ -6,15 +6,16 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:23:10 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/27 17:57:32 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/09 03:04:14 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_check_input(int ac, char **av, t_fractol *fractal)
+void	ft_check_input(int ac, char **av, t_fractol *fractal)
 {
 	ft_adjust_name(av[1]);
+	av[1] = ft_strtrim(av[1]);
 	if (ac == 2 && ft_strcmp("mandelbrot", av[1]) == 0)
 		fractal->title = av[1];
 	else if (ac == 4 && ft_strcmp("julia", av[1]) == 0)
@@ -25,7 +26,6 @@ int	ft_check_input(int ac, char **av, t_fractol *fractal)
 	}
 	else
 		ft_print_error();
-	return (0);
 }
 
 int	main(int ac, char **av)

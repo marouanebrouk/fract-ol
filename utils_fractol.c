@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:50:26 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/02/28 21:57:54 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/08 01:45:28 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_error(t_fractol *fractal)
 
 void	ft_data_init(t_fractol *fractal)
 {
-	fractal->iteration_num = 50;
+	fractal->iteration_num = 43;
 	fractal->shift_reel = 0.0;
 	fractal->shift_imaginary = 0.0;
 	fractal->zoom = 1.0;

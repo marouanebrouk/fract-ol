@@ -6,7 +6,7 @@
 /*   By: mbrouk <mbrouk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:54:20 by mbrouk            #+#    #+#             */
-/*   Updated: 2025/03/02 01:16:33 by mbrouk           ###   ########.fr       */
+/*   Updated: 2025/03/09 16:40:40 by mbrouk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void	ft_check_fractal_set(t_complex *z, t_complex *c, t_fractol *fractal)
 	{
 		c->reel = z->reel;
 		c->imaginary = z->imaginary;
+		z->reel = 0;
+		z->imaginary = 0;
 	}
 }
 
@@ -78,13 +80,13 @@ void	ft_pixel(int x, int y, t_fractol *fractal)
 		z = ft_sum_complex(ft_square_complex(z), c);
 		if ((z.reel * z.reel + z.imaginary * z.imaginary) > 4)
 		{
-			color = ft_scale(i, BLACK, WHITE, fractal->iteration_num);
+			color = ft_scale(i, BLACK, WHITE, 42);
 			ft_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		i++;
 	}
-	ft_pixel_put(x, y, &fractal->img, BLACK);
+	ft_pixel_put(x, y, &fractal->img, 0xFF0000);
 }
 
 void	ft_render_fractal(t_fractol *fractal)
